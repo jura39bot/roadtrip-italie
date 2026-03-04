@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚐 Roadtrip Italie 15j — Mathieu & Trafic</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; display: flex; flex-direction: column; height: 100vh; }
+  
+  header {
+    background: linear-gradient(135deg, #16213e, #0f3460);
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 2px solid #e94560;
+  }
+  header h1 { font-size: 1.2rem; color: #fff; }
+  header .sub { font-size: 0.8rem; color: #aaa; }
+  header .badge { background: #e94560; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; margin-left: auto; }
+
+  .main { display: flex; flex: 1; overflow: hidden; }
+
+  #map { flex: 1; min-height: 400px; }
+
+  .sidebar {
+    width: 380px;
+    background: #16213e;
+    overflow-y: auto;
+    border-left: 2px solid #0f3460;
+  }
+
+  .tabs {
+    display: flex;
+    background: #0f3460;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab {
+    flex: 1; padding: 10px 4px; text-align: center; cursor: pointer;
+    font-size: 0.72rem; color: #aaa; border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab.active { color: #e94560; border-bottom-color: #e94560; }
+
+  .tab-content { display: none; padding: 12px; }
+  .tab-content.active { display: block; }
+
+  .stop {
+    background: #0f3460;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-left: 4px solid #e94560;
+  }
+  .stop-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    background: #16213e;
+  }
+  .stop-num {
+    background: #e94560;
+    color: white; width: 26px; height: 26px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: bold; flex-shrink: 0;
+  }
+  .stop-title { flex: 1; }
+  .stop-title h3 { font-size: 0.9rem; color: #fff; }
+  .stop-title .dates { font-size: 0.72rem; color: #e94560; }
+  .stop-body { padding: 10px 12px; font-size: 0.78rem; line-height: 1.6; display: none; }
+  .stop-body.open { display: block; }
+
+  .icon-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+  .chip {
+    background: #1a1a2e; border-radius: 20px;
+    padding: 3px 10px; font-size: 0.7rem; color: #ccc;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .chip.green { border: 1px solid #2ecc71; color: #2ecc71; }
+  .chip.blue { border: 1px solid #3498db; color: #3498db; }
+  .chip.orange { border: 1px solid #f39c12; color: #f39c12; }
+  .chip.red { border: 1px solid #e74c3c; color: #e74c3c; }
+
+  .camping-card {
+    background: #1a1a2e; border-radius: 8px; padding: 10px; margin: 6px 0;
+  }
+  .camping-card h4 { color: #2ecc71; font-size: 0.82rem; margin-bottom: 4px; }
+  .camping-card p { font-size: 0.72rem; color: #bbb; }
+  .camping-card .tags { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px; padding: 12px;
+    background: #0f3460; border-bottom: 1px solid #1a1a2e;
+  }
+  .leg-item { display: flex; align-items: center; gap: 4px; font-size: 0.7rem; }
+  .leg-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+  .info-box {
+    background: #0f3460; border-radius: 8px; padding: 12px; margin-bottom: 10px;
+  }
+  .info-box h3 { color: #e94560; font-size: 0.85rem; margin-bottom: 8px; }
+  .info-box ul { list-style: none; font-size: 0.78rem; line-height: 1.9; }
+  .info-box ul li::before { content: "→ "; color: #e94560; }
+
+  .toggle-arrow { color: #aaa; transition: transform 0.2s; }
+  .toggle-arrow.open { transform: rotate(90deg); }
+
+  @media (max-width: 700px) {
+    .main { flex-direction: column; }
+    .sidebar { width: 100%; max-height: 55vh; border-left: none; border-top: 2px solid #0f3460; }
+    #map { min-height: 45vh; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>🚐</div>
+  <div>
+    <h1>Roadtrip Italie — 15 jours</h1>
+    <div class="sub">Morez → Ligurie → Toscane → Ombrie | Trafic + tente de toit</div>
+  </div>
+  <div class="badge">15 nuits · ~2 100 km</div>
+</header>
+
+<div class="main">
+  <div id="map"></div>
+
+  <div class="sidebar">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('itineraire')">🗺️ Itinéraire</div>
+      <div class="tab" onclick="showTab('camping')">⛺ Campings</div>
+      <div class="tab" onclick="showTab('velo')">🚴 Vélo</div>
+      <div class="tab" onclick="showTab('pratique')">🔧 Pratique</div>
+    </div>
+
+    <!-- ITINÉRAIRE -->
+    <div id="tab-itineraire" class="tab-content active">
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#e94560"></div> Étape principale</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#2ecc71"></div> Camping</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#3498db"></div> Baignade</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#f39c12"></div> Vélo</div>
+      </div>
+
+      <!-- STOP 1 -->
+      <div class="stop" id="stop1">
+        <div class="stop-header" onclick="toggleStop(1)">
+          <div class="stop-num">1</div>
+          <div class="stop-title">
+            <h3>🏔️ Col de Montgenèvre → Ligurie</h3>
+            <div class="dates">J1 — Transit + arrivée côte</div>
+          </div>
+          <span class="toggle-arrow" id="arr1">▶</span>
+        </div>
+        <div class="stop-body" id="body1">
+          <p>Départ Morez → A40 → Fréjus/Mont-Blanc ou D1091 col du Montgenèvre. Arrivée côte ligure en soirée (~280 km, ~3h30).</p>
+          <div class="icon-row">
+            <span class="chip orange">🛣️ 280 km</span>
+            <span class="chip blue">🌊 Arrivée mer</span>
+          </div>
+          <div class="camping-card">
+            <h4>⛺ Camping Estella — Diano Marina</h4>
+            <p>Terrain nu disponible · Électricité possible · Bord de mer · Douches incluses</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu</span>
+              <span class="chip green">Électricité</span>
+              <span class="chip blue">Mer à 200m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 2 -->
+      <div class="stop" id="stop2">
+        <div class="stop-header" onclick="toggleStop(2)">
+          <div class="stop-num">2</div>
+          <div class="stop-title">
+            <h3>🌊 Côte Ligure — Cinque Terre</h3>
+            <div class="dates">J2-J4 · 3 nuits</div>
+          </div>
+          <span class="toggle-arrow" id="arr2">▶</span>
+        </div>
+        <div class="stop-body" id="body2">
+          <p><strong>Base :</strong> Levanto ou La Spezia — accès Cinque Terre en train (5€ aller). Évite la voiture dans les villages.</p>
+          <div class="icon-row">
+            <span class="chip blue">🏊 Plage Levanto</span>
+            <span class="chip blue">🏊 Monterosso al Mare</span>
+            <span class="chip orange">🚴 Piste Levanto→Bonassola</span>
+            <span class="chip red">👁️ Riomaggiore · Vernazza · Corniglia</span>
+          </div>
+          <p style="margin-top:8px"><strong>À voir :</strong> Les 5 villages en train, sentier Azzurro (vérifier ouverture), coucher de soleil à Vernazza.</p>
+          <p><strong>Baignade :</strong> Plage de Levanto (sable, grande), criques à Monterosso, crique de Punta Mesco.</p>
+          <div class="camping-card">
+            <h4>⛺ Camping Acqua Dolce — Levanto</h4>
+            <p>Vue mer · Terrain nu · Élec. disponible · Navette village · Ombragé</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+              <span class="chip blue">Vue mer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 3 -->
+      <div class="stop" id="stop3">
+        <div class="stop-header" onclick="toggleStop(3)">
+          <div class="stop-num">3</div>
+          <div class="stop-title">
+            <h3>🏛️ Lucca & Pise</h3>
+            <div class="dates">J5-J6 · 2 nuits</div>
+          </div>
+          <span class="toggle-arrow" id="arr3">▶</span>
+        </div>
+        <div class="stop-body" id="body3">
+          <p>Quitter la côte. Lucca : remparts médiévaux intacts, vélo obligatoire sur les remparts ! Pise : tour, baptistère, Campo dei Miracoli.</p>
+          <div class="icon-row">
+            <span class="chip orange">🚴 Remparts de Lucca (4 km sur les murs)</span>
+            <span class="chip red">👁️ Torre di Pisa</span>
+            <span class="chip red">👁️ Piazza Napoleone</span>
+            <span class="chip blue">🏊 Marina di Pisa (20 min)</span>
+          </div>
+          <div class="camping-card">
+            <h4>⛺ Camping Torre Pendente — Pise</h4>
+            <p>À 1 km de la tour · Terrain nu · Piscine · Électricité · Bus centro</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+              <span class="chip orange">Piscine</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 4 -->
+      <div class="stop" id="stop4">
+        <div class="stop-header" onclick="toggleStop(4)">
+          <div class="stop-num">4</div>
+          <div class="stop-title">
+            <h3>🍷 Volterra & San Gimignano</h3>
+            <div class="dates">J7-J8 · 2 nuits</div>
+          </div>
+          <span class="toggle-arrow" id="arr4">▶</span>
+        </div>
+        <div class="stop-body" id="body4">
+          <p>Collines toscanes. Volterra : acropole étrusque, albâtre, panorama sublime. San Gimignano : les tours médiévales, meilleure glace d'Italie (Gelateria Dondoli).</p>
+          <div class="icon-row">
+            <span class="chip orange">🚴 Vélo route entre les deux villages (~40 km, vallonné)</span>
+            <span class="chip red">👁️ Acropole étrusque Volterra</span>
+            <span class="chip red">👁️ 14 tours San Gimignano</span>
+          </div>
+          <div class="camping-card">
+            <h4>⛺ Camping Il Boschetto di Piemma — San Gimignano</h4>
+            <p>Collines toscanes · Vue vignes · Terrain nu · Électricité · Piscine</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+              <span class="chip orange">Piscine · Vue vigne</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 5 -->
+      <div class="stop" id="stop5">
+        <div class="stop-header" onclick="toggleStop(5)">
+          <div class="stop-num">5</div>
+          <div class="stop-title">
+            <h3>🏙️ Sienne</h3>
+            <div class="dates">J9 · 1 nuit</div>
+          </div>
+          <span class="toggle-arrow" id="arr5">▶</span>
+        </div>
+        <div class="stop-body" id="body5">
+          <p>Centre historique UNESCO. Piazza del Campo iconique. Duomo de Sienne extraordinaire. Ville à explorer à pied.</p>
+          <div class="icon-row">
+            <span class="chip red">👁️ Piazza del Campo</span>
+            <span class="chip red">👁️ Duomo di Siena</span>
+            <span class="chip orange">🚴 Vélo Via Francigena (plat)</span>
+          </div>
+          <div class="camping-card">
+            <h4>⛺ Camping Siena Colleverde</h4>
+            <p>2 km du centro · Bus direct Piazza · Terrain nu · Ombragé oliviers · Élec.</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+              <span class="chip blue">Bus centro</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 6 -->
+      <div class="stop" id="stop6">
+        <div class="stop-header" onclick="toggleStop(6)">
+          <div class="stop-num">6</div>
+          <div class="stop-title">
+            <h3>🌾 Val d'Orcia & Pitigliano</h3>
+            <div class="dates">J10-J11 · 2 nuits</div>
+          </div>
+          <span class="toggle-arrow" id="arr6">▶</span>
+        </div>
+        <div class="stop-body" id="body6">
+          <p>Val d'Orcia : les cyprès toscans de carte postale (Pienza, Montalcino, Bagno Vignoni). Pitigliano : ville taillée dans le tuf volcanique, spectaculaire.</p>
+          <div class="icon-row">
+            <span class="chip red">👁️ Bagno Vignoni (thermes naturels)</span>
+            <span class="chip blue">🏊 Terme di Saturnia (gratuit !)</span>
+            <span class="chip red">👁️ Pienza · Montalcino</span>
+            <span class="chip orange">🚴 Strada Bianche (gravel, Val d'Orcia)</span>
+          </div>
+          <p style="margin-top:8px"><strong>⭐ Terme di Saturnia :</strong> Cascades d'eau chaude naturelle à 37°C, accès libre, paysage magique. À ~30 min de Pitigliano.</p>
+          <div class="camping-card">
+            <h4>⛺ Agriturismo Camping Podere Sei Piagge — Manciano</h4>
+            <p>Toscane profonde · Terrain nu · Vue campagne · Électricité · Calme total</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+              <span class="chip orange">Agriturismo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 7 -->
+      <div class="stop" id="stop7">
+        <div class="stop-header" onclick="toggleStop(7)">
+          <div class="stop-num">7</div>
+          <div class="stop-title">
+            <h3>🏞️ Lago Trasimeno — Ombrie</h3>
+            <div class="dates">J12-J13 · 2 nuits</div>
+          </div>
+          <span class="toggle-arrow" id="arr7">▶</span>
+        </div>
+        <div class="stop-body" id="body7">
+          <p>Grand lac d'eau douce ombrien. Eau chaude (~24°C en été), tranquille. Castiglione del Lago : village sur presqu'île. Assise à 30 min.</p>
+          <div class="icon-row">
+            <span class="chip blue">🏊 Plage Castiglione del Lago</span>
+            <span class="chip blue">🏊 Passignano sul Trasimeno</span>
+            <span class="chip orange">🚴 Tour du lac (50 km, plat)</span>
+            <span class="chip red">👁️ Assise · Pérouse</span>
+          </div>
+          <p style="margin-top:8px"><strong>🚴 Tour du lac Trasimeno :</strong> 50 km, quasi plat, magnifique. Pistes cyclables + petites routes. Parfait pour une journée.</p>
+          <div class="camping-card">
+            <h4>⛺ Camping Badiaccia — Castiglione del Lago</h4>
+            <p>Bord du lac · Plage privée · Terrain nu · Électricité · Location VTT</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+              <span class="chip blue">Plage lac ✓</span>
+              <span class="chip orange">Location vélo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOP 8 -->
+      <div class="stop" id="stop8">
+        <div class="stop-header" onclick="toggleStop(8)">
+          <div class="stop-num">8</div>
+          <div class="stop-title">
+            <h3>🏔️ Retour — Col du Mont-Cenis</h3>
+            <div class="dates">J14-J15 · Transit</div>
+          </div>
+          <span class="toggle-arrow" id="arr8">▶</span>
+        </div>
+        <div class="stop-body" id="body8">
+          <p>Remontée tranquille via Florence (stop rapide Piazzale Michelangelo) → Bologne → Piémont → col du Mont-Cenis ou Fréjus → Morez. Compter 2 jours pour ne pas se presser.</p>
+          <div class="icon-row">
+            <span class="chip red">👁️ Piazzale Michelangelo (Florence)</span>
+            <span class="chip orange">🚴 Piste cyclable Bologne</span>
+            <span class="chip orange">🛣️ ~550 km retour</span>
+          </div>
+          <div class="camping-card">
+            <h4>⛺ Stop J14 — Camping Mugello Verde (Toscane Nord)</h4>
+            <p>Étape relais vers le nord · Terrain nu · Élec · Piscine · Calme</p>
+            <div class="tags">
+              <span class="chip green">Terrain nu ✓</span>
+              <span class="chip green">Électricité ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CAMPINGS -->
+    <div id="tab-camping" class="tab-content">
+      <div class="info-box">
+        <h3>📋 Récap campings — terrain nu + électricité</h3>
+        <ul>
+          <li><strong>Camping Estella</strong> — Diano Marina (J1)</li>
+          <li><strong>Camping Acqua Dolce</strong> — Levanto (J2-J4)</li>
+          <li><strong>Camping Torre Pendente</strong> — Pise (J5-J6)</li>
+          <li><strong>Il Boschetto di Piemma</strong> — San Gimignano (J7-J8)</li>
+          <li><strong>Camping Colleverde</strong> — Sienne (J9)</li>
+          <li><strong>Podere Sei Piagge</strong> — Manciano (J10-J11)</li>
+          <li><strong>Camping Badiaccia</strong> — Lago Trasimeno (J12-J13)</li>
+          <li><strong>Camping Mugello Verde</strong> — Toscane Nord (J14)</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>💡 Conseils réservation</h3>
+        <ul>
+          <li>Réserver AVANT le départ (juillet/août = plein)</li>
+          <li>Toujours demander "piazzola nuda + corrente"</li>
+          <li>Pitchup.com ou camping.info pour comparer</li>
+          <li>Prévoir rallonge 25m (certains emplacements loin)</li>
+          <li>Fossibot F2400 : brancher la nuit, utiliser frigo sur batterie le jour</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>⚡ Autonomie Fossibot F2400</h3>
+        <ul>
+          <li>2400 Wh → frigo 12V ~4-5j autonomie réelle</li>
+          <li>Avec élec camping : recharge complète en ~3h (800W)</li>
+          <li>Panneau solaire recommandé pour les jours sans élec</li>
+          <li>Sans élec 2j max confort avec frigo + éclairage</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VÉLO -->
+    <div id="tab-velo" class="tab-content">
+      <div class="info-box">
+        <h3>🚴 Sorties vélo by stop</h3>
+        <ul>
+          <li><strong>Levanto :</strong> Piste littorale Levanto→Bonassola (5 km, tunnel voûté, facile, bluffant)</li>
+          <li><strong>Lucca :</strong> Tour des remparts médiévaux (4 km sur les murs, unique en Europe)</li>
+          <li><strong>San Gimignano→Volterra :</strong> Route toscane ~40 km, vallonné, vigne & cyprès</li>
+          <li><strong>Val d'Orcia :</strong> Strade Bianche (chemins blancs graviers), cadre de carte postale</li>
+          <li><strong>Lago Trasimeno :</strong> Tour complet du lac 50 km, quasi plat, superbe</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>📱 Apps utiles vélo</h3>
+        <ul>
+          <li>Komoot — traces GPX Italie toutes dispo</li>
+          <li>Strava — segments locaux populaires</li>
+          <li>Wikiloc — traces locales hors-piste</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>🔧 Emporter dans le Trafic</h3>
+        <ul>
+          <li>Vélos rack arrière ou galerie toit</li>
+          <li>Pompe + kit crevaison</li>
+          <li>Antivol U (campings = sûrs mais villages touristiques pas toujours)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PRATIQUE -->
+    <div id="tab-pratique" class="tab-content">
+      <div class="info-box">
+        <h3>🛣️ Route — 2 options depuis Morez</h3>
+        <ul>
+          <li><strong>Option A (rapide) :</strong> A40 → Tunnel Mont-Blanc → A5 → A10 Ligurie. ~4h, péages ~35€</li>
+          <li><strong>Option B (col) :</strong> D1091 col du Montgenèvre → Briançon → Fréjus → A8 Nice → Vintimille. ~5h, magnifique</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>🏊 Spots baignade résumé</h3>
+        <ul>
+          <li><strong>Diano Marina :</strong> plage de galets, eau claire ligure</li>
+          <li><strong>Monterosso al Mare :</strong> seule vraie plage de sable des Cinque Terre</li>
+          <li><strong>Plage Levanto :</strong> sable, moins fréquentée, idéale famille</li>
+          <li><strong>Terme di Saturnia :</strong> ⭐ cascades thermales 37°C, GRATUIT, accès libre</li>
+          <li><strong>Lago Trasimeno :</strong> eau douce chaude, plages tranquilles, idéal vélo+baignade</li>
+          <li><strong>Marina di Pisa :</strong> plage de sable, 20 min de Pise</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>💶 Budget estimé 15j</h3>
+        <ul>
+          <li>Campings terrain nu : 15-25€/nuit → ~300€</li>
+          <li>Carburant (diesel ~1.8€/L, ~1500 km) : ~200€</li>
+          <li>Péages : ~60€ aller-retour</li>
+          <li>Nourriture (courses + restos) : ~600€</li>
+          <li>Activités/entrées : ~100€</li>
+          <li><strong>Total estimé : ~1 300€ pour 2</strong></li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>📋 Checklist Trafic</h3>
+        <ul>
+          <li>Vignette autoroute Italie (pas nécessaire Trafic >3.5T attention)</li>
+          <li>Gilet jaune + triangle dans habitacle (obligatoire IT)</li>
+          <li>Assurance internationale (carte verte)</li>
+          <li>Rallonge électrique 25m + multi-prise</li>
+          <li>Eau : 20L bidon (certains campings comptent l'eau)</li>
+          <li>ZTL Italie : ne jamais entrer en voiture dans les centres historiques !</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Carte Leaflet
+const map = L.map('map').setView([44.5, 10.5], 6);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+  maxZoom: 18
+}).addTo(map);
+
+// Points du roadtrip
+const stops = [
+  { id: 1, name: "Morez (départ)", lat: 46.5228, lng: 5.9741, color: "#9b59b6", icon: "🏠", desc: "Point de départ" },
+  { id: 2, name: "Diano Marina", lat: 43.9085, lng: 8.0808, color: "#e94560", icon: "🌊", desc: "J1 — Arrivée Ligurie" },
+  { id: 3, name: "Levanto — Cinque Terre", lat: 44.1706, lng: 9.6099, color: "#e94560", icon: "🌊", desc: "J2-J4 — Cinque Terre" },
+  { id: 4, name: "Pise", lat: 43.7228, lng: 10.4017, color: "#e94560", icon: "🏛️", desc: "J5-J6 — Lucca & Pise" },
+  { id: 5, name: "San Gimignano", lat: 43.4676, lng: 11.0433, color: "#e94560", icon: "🏰", desc: "J7-J8 — Volterra & San Gimignano" },
+  { id: 6, name: "Sienne", lat: 43.3188, lng: 11.3308, color: "#e94560", icon: "🏙️", desc: "J9 — Sienne" },
+  { id: 7, name: "Val d'Orcia / Pitigliano", lat: 42.6381, lng: 11.6703, color: "#e94560", icon: "🌾", desc: "J10-J11" },
+  { id: 8, name: "Terme di Saturnia ⭐", lat: 42.6477, lng: 11.5081, color: "#3498db", icon: "♨️", desc: "Thermes naturels gratuits 37°C" },
+  { id: 9, name: "Lago Trasimeno", lat: 43.1209, lng: 12.0466, color: "#e94560", icon: "🏞️", desc: "J12-J13 — Ombrie" },
+  { id: 10, name: "Florence (stop)", lat: 43.7696, lng: 11.2558, color: "#f39c12", icon: "🎨", desc: "J14 — Stop retour" },
+];
+
+// Camping markers
+const campings = [
+  { name: "Camping Estella", lat: 43.9085, lng: 8.0808 },
+  { name: "Camping Acqua Dolce", lat: 44.1706, lng: 9.6099 },
+  { name: "Camping Torre Pendente", lat: 43.7199, lng: 10.3877 },
+  { name: "Il Boschetto di Piemma", lat: 43.4676, lng: 11.0433 },
+  { name: "Camping Colleverde", lat: 43.3188, lng: 11.3308 },
+  { name: "Podere Sei Piagge", lat: 42.5981, lng: 11.5103 },
+  { name: "Camping Badiaccia", lat: 43.1209, lng: 12.0466 },
+];
+
+// Spots baignade
+const swim = [
+  { name: "Plage Monterosso al Mare", lat: 44.1463, lng: 9.6548 },
+  { name: "Plage Levanto", lat: 44.1706, lng: 9.6099 },
+  { name: "Marina di Pisa", lat: 43.6724, lng: 10.2773 },
+  { name: "Terme di Saturnia (37°C !)", lat: 42.6477, lng: 11.5081 },
+  { name: "Lago Trasimeno — Castiglione", lat: 43.1209, lng: 12.0466 },
+];
+
+// Vélo spots
+const velo = [
+  { name: "🚴 Tunnel Levanto→Bonassola", lat: 44.1600, lng: 9.5800 },
+  { name: "🚴 Remparts de Lucca", lat: 43.8431, lng: 10.5031 },
+  { name: "🚴 Strade Bianche Val d'Orcia", lat: 43.0500, lng: 11.6000 },
+  { name: "🚴 Tour Lago Trasimeno (50km)", lat: 43.1500, lng: 12.1000 },
+];
+
+function makeIcon(emoji, color) {
+  return L.divIcon({
+    html: `<div style="background:${color};width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">${emoji}</div>`,
+    iconSize: [32, 32], iconAnchor: [16, 16], className: ''
+  });
+}
+
+// Tracer la route
+const routeCoords = stops.filter(s => s.id !== 8).map(s => [s.lat, s.lng]);
+// Ajouter retour vers Morez
+routeCoords.push([46.5228, 5.9741]);
+L.polyline(routeCoords, { color: '#e94560', weight: 3, opacity: 0.7, dashArray: '8,4' }).addTo(map);
+
+// Ajouter markers étapes
+stops.forEach(s => {
+  L.marker([s.lat, s.lng], { icon: makeIcon(s.icon, s.color) })
+    .addTo(map)
+    .bindPopup(`<b>${s.name}</b><br><small>${s.desc}</small>`);
+});
+
+// Camping markers
+campings.forEach(c => {
+  L.marker([c.lat, c.lng], { icon: makeIcon('⛺', '#2ecc71') })
+    .addTo(map)
+    .bindPopup(`<b>⛺ ${c.name}</b><br><small>Terrain nu + électricité</small>`);
+});
+
+// Swim markers
+swim.forEach(s => {
+  L.marker([s.lat, s.lng], { icon: makeIcon('🏊', '#3498db') })
+    .addTo(map)
+    .bindPopup(`<b>${s.name}</b>`);
+});
+
+// Velo markers
+velo.forEach(v => {
+  L.marker([v.lat, v.lng], { icon: makeIcon('🚴', '#f39c12') })
+    .addTo(map)
+    .bindPopup(`<b>${v.name}</b>`);
+});
+
+// Toggle stop accordion
+function toggleStop(n) {
+  const body = document.getElementById('body' + n);
+  const arr = document.getElementById('arr' + n);
+  body.classList.toggle('open');
+  arr.classList.toggle('open');
+}
+
+// Tab switch
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Ouvrir le stop 1 par défaut
+toggleStop(1);
+</script>
+</body>
+</html>
