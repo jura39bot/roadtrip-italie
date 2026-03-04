@@ -11,7 +11,7 @@
 **📧 À envoyer à :** info@campingmarino.it  
 **📍 Adresse :** Via Angiolo Silvio Novaro, 15 — 18013 Diano Marina (IM)  
 **🌐 Site :** www.campingmarino.it  
-**📅 Séjour :** 1 nuit — vendredi 17 octobre 2026 (arrivée soir ~15h, départ matin 18 oct)  
+**📅 Séjour :** 1 nuit — samedi 17 octobre 2026 (arrivée soir ~15h, départ matin 18 oct)  
 **✅ Statut saison :** Ouvert toute l'année — réservation de confort
 
 ---
@@ -22,7 +22,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 1 nuit au Camping Marino :
 
-- **Dates :** arrivée le **vendredi 17 octobre 2026** (en soirée, vers 15h-16h), départ le **samedi 18 octobre 2026**
+- **Dates :** arrivée le **samedi 17 octobre 2026** (en soirée, vers 15h-16h), départ le **dimanche 18 octobre 2026**
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
@@ -41,7 +41,7 @@ Mathieu Chevalier
 **📧 À envoyer via :** https://www.campingacquadolce.com/en/contacts/ (formulaire)  
 **📍 Adresse :** Via Guido Semenza, 5 — 19015 Levanto (SP)  
 **🌐 Site :** www.campingacquadolce.com  
-**📅 Séjour :** 3 nuits — samedi 18 au mardi 21 octobre 2026  
+**📅 Séjour :** 3 nuits — samedi 18 au mercredi 21 octobre 2026  
 **⚠️ Statut saison :** Ouverture octobre à confirmer
 
 ---
@@ -52,7 +52,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 3 nuits au Camping Acqua Dolce :
 
-- **Dates :** du **samedi 18 octobre 2026** (arrivée ~14h) au **mardi 21 octobre 2026** (départ matin)
+- **Dates :** du **dimanche 18 octobre 2026** (arrivée ~14h) au **mercredi 21 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
@@ -71,7 +71,7 @@ Mathieu Chevalier
 **📧 À envoyer à :** info@campingtorrependente.it  
 **📍 Adresse :** Viale delle Cascine, 86 — 56122 Pisa (PI)  
 **🌐 Site :** www.campingtorrependente.it  
-**📅 Séjour :** 2 nuits — mardi 21 au jeudi 23 octobre 2026  
+**📅 Séjour :** 2 nuits — mardi 21 au vendredi 23 octobre 2026  
 **✅ Statut saison :** Ouvert jusqu'au 1er novembre 2026 — OK
 
 ---
@@ -82,7 +82,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 2 nuits au Camping Village Torre Pendente :
 
-- **Dates :** du **mardi 21 octobre 2026** (arrivée ~14h) au **jeudi 23 octobre 2026** (départ matin)
+- **Dates :** du **mercredi 21 octobre 2026** (arrivée ~14h) au **vendredi 23 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
@@ -101,7 +101,7 @@ Mathieu Chevalier
 **📧 À envoyer à :** info@boschettodipiemma.it  
 **📍 Adresse :** Località Santa Lucia 38/c — 53037 San Gimignano (SI)  
 **🌐 Site :** www.boschettodipiemma.it  
-**📅 Séjour :** 2 nuits — jeudi 23 au samedi 25 octobre 2026  
+**📅 Séjour :** 2 nuits — jeudi 23 au dimanche 25 octobre 2026  
 **⚠️ Statut saison :** Fermeture ~31 octobre — arrivée 23 OK, mais à confirmer
 
 ---
@@ -112,7 +112,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 2 nuits au Camping Boschetto di Piemma :
 
-- **Dates :** du **jeudi 23 octobre 2026** (arrivée ~14h) au **samedi 25 octobre 2026** (départ matin)
+- **Dates :** du **vendredi 23 octobre 2026** (arrivée ~14h) au **dimanche 25 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
@@ -133,7 +133,7 @@ Mathieu Chevalier
 **📧 À envoyer à :** info@sienacamping.com  
 **📍 Adresse :** Strada di Scacciapensieri, 47 — 53100 Siena  
 **🌐 Site :** www.sienacamping.com  
-**📅 Séjour :** 1 nuit — samedi 25 au dimanche 26 octobre 2026  
+**📅 Séjour :** 1 nuit — samedi 25 au lundi 26 octobre 2026  
 **⚠️ Statut saison :** Fermeture ~31 octobre — nuit du 25 OK mais à confirmer
 
 ---
@@ -144,7 +144,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 1 nuit au Camping Siena Colleverde :
 
-- **Dates :** du **samedi 25 octobre 2026** (arrivée ~14h) au **dimanche 26 octobre 2026** (départ matin)
+- **Dates :** du **dimanche 25 octobre 2026** (arrivée ~14h) au **lundi 26 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
@@ -164,7 +164,7 @@ Mathieu Chevalier
 **📍 Adresse :** Località Poggio del Castagno — 58017 Pitigliano (GR)  
 **📞 Tel :** +39 0564 615545 / +39 339 3674341  
 **🌐 Site :** www.poggiodelcastagno.net  
-**📅 Séjour :** 2 nuits — dimanche 26 au mardi 28 octobre 2026  
+**📅 Séjour :** 2 nuits — dimanche 26 au mercredi 28 octobre 2026  
 **⚠️ Statut saison :** Agriturismo — ouverture octobre à confirmer (appel tel recommandé)
 
 ---
@@ -175,7 +175,7 @@ Bonjour,
 
 Je souhaiterais séjourner 2 nuits à l'Agriturismo Poggio del Castagno avec mon véhicule :
 
-- **Dates :** du **dimanche 26 octobre 2026** (arrivée ~14h) au **mardi 28 octobre 2026** (départ matin)
+- **Dates :** du **lundi 26 octobre 2026** (arrivée ~14h) au **mercredi 28 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m) avec tente de toit
 - **Besoin :** emplacement pour véhicule aménagé avec accès électricité si possible
@@ -195,7 +195,7 @@ Mathieu Chevalier
 **📧 À envoyer à :** info@badiaccia.com  
 **📍 Adresse :** Via Pratovecchio, 1 — 06061 Castiglione del Lago (PG)  
 **🌐 Site :** www.badiaccia.com  
-**📅 Séjour :** 2 nuits — mardi 28 au jeudi 30 octobre 2026  
+**📅 Séjour :** 2 nuits — mardi 28 au vendredi 30 octobre 2026  
 **⚠️ Statut saison :** Fermeture fin octobre à vérifier
 
 ---
@@ -206,7 +206,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 2 nuits au Camping Badiaccia Village :
 
-- **Dates :** du **mardi 28 octobre 2026** (arrivée ~14h) au **jeudi 30 octobre 2026** (départ matin)
+- **Dates :** du **mercredi 28 octobre 2026** (arrivée ~14h) au **vendredi 30 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
@@ -236,7 +236,7 @@ Bonjour,
 
 Je souhaiterais réserver un emplacement pour 1 nuit au Camping Mugello Verde :
 
-- **Dates :** du **jeudi 30 octobre 2026** (arrivée ~16h) au **vendredi 31 octobre 2026** (départ matin)
+- **Dates :** du **vendredi 30 octobre 2026** (arrivée ~16h) au **samedi 31 octobre 2026** (départ matin)
 - **Personnes :** 4 (2 adultes + 2 enfants : 12 ans et 9 ans)
 - **Véhicule :** Renault Trafic 9 places rallongé (longueur ~5,5 m)
 - **Hébergement :** tente de toit posée sur le véhicule
