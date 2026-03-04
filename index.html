@@ -121,7 +121,7 @@
     <h1>Roadtrip Italie — 15 jours</h1>
     <div class="sub">Morez → Ligurie → Toscane → Ombrie | Trafic + tente de toit</div>
   </div>
-  <div class="badge">15 nuits · ~1 850 km route réelle</div>
+  <div class="badge">15 nuits · ~2 100 km</div>
 </header>
 
 <div class="main">
@@ -157,7 +157,7 @@
         <div class="stop-body" id="body1">
           <p>Départ Morez → A40 → Fréjus/Mont-Blanc ou D1091 col du Montgenèvre. Arrivée côte ligure en soirée (~280 km, ~3h30).</p>
           <div class="icon-row">
-            <span class="chip orange">🛣️ 450 km route ~5h</span>
+            <span class="chip orange">🛣️ 280 km</span>
             <span class="chip blue">🌊 Arrivée mer</span>
           </div>
           <div class="camping-card">
@@ -554,11 +554,71 @@ function makeIcon(emoji, color) {
   });
 }
 
-// Tracer la route
-const routeCoords = stops.filter(s => s.id !== 8).map(s => [s.lat, s.lng]);
-// Ajouter retour vers Morez
-routeCoords.push([46.5228, 5.9741]);
-L.polyline(routeCoords, { color: '#e94560', weight: 3, opacity: 0.7, dashArray: '8,4' }).addTo(map);
+// Tracé routier réel via OSRM (OpenStreetMap Routing)
+// Waypoints dans l'ordre du roadtrip (aller + retour)
+const waypoints = [
+  [46.5228, 5.9741],   // Morez
+  [43.9085, 8.0808],   // Diano Marina
+  [44.1706, 9.6099],   // Levanto
+  [43.7228, 10.4017],  // Pise
+  [43.4676, 11.0433],  // San Gimignano
+  [43.3188, 11.3308],  // Sienne
+  [42.6381, 11.6703],  // Pitigliano
+  [43.1209, 12.0466],  // Lago Trasimeno
+  [43.7696, 11.2558],  // Florence
+  [44.0300, 11.2800],  // Mugello (Barberino di Mugello)
+  [46.5228, 5.9741],   // Retour Morez
+];
+
+async function fetchOSRMRoute(pts) {
+  const coords = pts.map(p => p[1] + ',' + p[0]).join(';');
+  const url = `https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if (data.routes && data.routes[0]) {
+    return data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+  }
+  return null;
+}
+
+// OSRM limite à ~25 waypoints — on découpe en segments
+async function drawRoute() {
+  const statusDiv = document.createElement('div');
+  statusDiv.style.cssText = 'position:absolute;bottom:10px;left:10px;z-index:999;background:rgba(0,0,0,0.7);color:#e94560;padding:6px 12px;border-radius:6px;font-size:0.75rem;';
+  statusDiv.textContent = '🗺️ Calcul du tracé routier…';
+  document.getElementById('map').appendChild(statusDiv);
+
+  try {
+    // Segments : on découpe en paires consécutives pour contourner la limite OSRM
+    const segments = [];
+    for (let i = 0; i < waypoints.length - 1; i++) {
+      segments.push([waypoints[i], waypoints[i+1]]);
+    }
+
+    const allCoords = [];
+    for (const seg of segments) {
+      const coords = await fetchOSRMRoute(seg);
+      if (coords) allCoords.push(...coords);
+      await new Promise(r => setTimeout(r, 120)); // petit délai pour ne pas spammer l'API
+    }
+
+    if (allCoords.length > 0) {
+      L.polyline(allCoords, { color: '#e94560', weight: 4, opacity: 0.85 }).addTo(map);
+      statusDiv.textContent = '✅ Tracé routier chargé';
+      setTimeout(() => statusDiv.remove(), 2500);
+    } else {
+      throw new Error('Pas de coordonnées');
+    }
+  } catch (e) {
+    // Fallback vol d'oiseau si OSRM indisponible
+    const fallback = waypoints;
+    L.polyline(fallback, { color: '#e94560', weight: 3, opacity: 0.6, dashArray: '8,4' }).addTo(map);
+    statusDiv.textContent = '⚠️ Tracé approx. (OSRM indisponible)';
+    setTimeout(() => statusDiv.remove(), 3000);
+  }
+}
+
+drawRoute();
 
 // Ajouter markers étapes
 stops.forEach(s => {
