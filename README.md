@@ -1,5 +1,6 @@
 # 🚐 Roadtrip Italie — 15 jours depuis Morez
 
+> Mathieu, sa compagne, Maeva (12 ans) & Margaux (9 ans)  
 > Trafic 9 places rallongé + tente de toit | Fossibot F2400 | 2j autonomie frigo  
 > Carte interactive : **[👉 Ouvrir la carte](https://jura39bot.github.io/roadtrip-italie/)**
 
@@ -19,8 +20,18 @@
 | J13→J14 | Lago Trasimeno → **Mugello** (étape retour) | **140 km** | ~1h45 |
 | J14→J15 | Mugello → **Morez** (via Turin + Mont-Blanc) | **560 km** | ~6h00 |
 
-**Total : ~1 850 km** (étapes + estimatif trajets locaux)  
-Carburant estimé : ~250€ (diesel ~1,85€/L, consommation Trafic rallongé ~10L/100)
+**Total : ~1 850 km** (étapes + estimatif trajets locaux)
+
+---
+
+## 👨‍👩‍👧‍👧 Le groupe
+
+| Qui | Notes |
+|-----|-------|
+| Mathieu | Conducteur, sysadmin, juras |
+| Sa compagne | Co-pilote & logistique |
+| Maeva | 12 ans — ado curieuse |
+| Margaux | 9 ans — énergie niveau ∞ |
 
 ---
 
@@ -28,164 +39,169 @@ Carburant estimé : ~250€ (diesel ~1,85€/L, consommation Trafic rallongé ~1
 
 ### J1 — Morez → Diano Marina · 450 km · ~5h
 - **Route :** Morez → A40 → Genève → Tunnel Mont-Blanc → Aoste → Turin → A26 → Gênes → A10 → Diano Marina
-- *Alternative scenic :* D1091 col du Montgenèvre → Briançon → Tunnel Fréjus → Turin → Gênes (+30 min, magnifique)
-- ⚠️ **Trafic rallongé :** vérifier hauteur tunnel Mont-Blanc (5,5m, OK) et gabarit autoroutes IT
-- **Camping :** Camping Estella — terrain nu ✓, électricité ✓, bord de mer
+- ⚠️ **Avec enfants :** Prévoir 2 pauses minimum (Aoste ou sortie d'autoroute). Partir tôt (7h) pour arriver en fin d'après-midi avec encore de l'énergie.
+- 🎒 **Pour Maeva & Margaux :** Préparer tablette/livres audio pour le trajet
+- **Camping :** Camping Estella — terrain nu ✓, électricité ✓, bord de mer, sanitaires familles
 
 ---
 
 ### J2-J4 — Cinque Terre (base Levanto) · 3 nuits
-- **Depuis Diano Marina → Levanto : 90 km · ~1h15** (A10 → La Spezia direction)
-- **Base Levanto :** accès villages en **train** (5€ A/R — ne pas y aller en voiture)
-- **Villages :** Riomaggiore, Manarola, Corniglia, Vernazza, Monterosso
-- **Baignade 🏊 :** Plage Levanto (sable), criques Monterosso al Mare
-- **Vélo 🚴 :** Piste Levanto → Bonassola (5 km, tunnel côtier voûté, facile)
+- **Depuis Diano Marina → Levanto : 90 km · ~1h15**
+- **Idéal famille :** Levanto = grande plage de sable, village sympa, moins touristique que les 5 villages
+- **Cinque Terre en train :** 5€/adulte, gratuit <4 ans → prévoir ~15€ pour la famille A/R
+- ✅ **Maeva (12 ans) :** Peut faire le sentier Azzurro entre certains villages (~2h, vérifier ouverture)
+- ✅ **Margaux (9 ans) :** Adore le train, les glaces et la plage — niveau parfait pour Monterosso
+- **Baignade 🏊 :** Plage Levanto (sable, eau calme, idéale pour les petites), Monterosso
+- **Vélo 🚴 :** Piste Levanto → Bonassola (5 km en tunnel, Margaux peut faire à vélo ou en remorque)
 - **Camping :** Camping Acqua Dolce — terrain nu ✓ | élec ✓ | vue mer | navette village
 
 ---
 
 ### J5-J6 — Lucca & Pise · 2 nuits
-- **Depuis Levanto → Pise : 95 km · ~1h30** (A12 côte puis A11)
-- **Lucca :** Remparts médiévaux intacts — à faire à **vélo** (4 km sur les murs, unique en Europe)
-- **Pise :** Campo dei Miracoli, Tour, Baptistère
-- **Baignade 🏊 :** Marina di Pisa (plage de sable, 20 min de Pise)
-- **Camping :** Camping Torre Pendente — terrain nu ✓ | élec ✓ | piscine | 1 km de la Tour
+- **Depuis Levanto → Pise : 95 km · ~1h30**
+- 🎉 **Lucca à vélo sur les remparts — les filles vont adorer.** 4 km sur les murs, vue sur la ville, pique-nique possible. Location vélo sur place (tandem pour Margaux ?)
+- **Pise :** La Tour qui penche = effet garanti sur les enfants 📸. Compter 2h, pas plus (la ville est petite)
+- **Baignade 🏊 :** Marina di Pisa (20 min) — grande plage de sable, eau peu profonde, parfait pour Margaux
+- **Camping :** Camping Torre Pendente — terrain nu ✓ | élec ✓ | piscine ✓ | 1 km de la Tour
 
 ---
 
 ### J7-J8 — Volterra & San Gimignano · 2 nuits
-- **Depuis Pise → San Gimignano : 65 km · ~1h00** (SS68 via Volterra ou A1 + SP)
-- **Volterra :** Acropole étrusque, albâtre, panorama spectaculaire sur la Toscane
-- **San Gimignano :** 14 tours médiévales, Gelateria Dondoli 🍦 (championne du monde)
-- **Vélo 🚴 :** Boucle entre les deux villages (~40 km, vallonné, vignes & cyprès)
-- **Camping :** Il Boschetto di Piemma — terrain nu ✓ | élec ✓ | piscine | vue vignes
+- **Depuis Pise → San Gimignano : 65 km · ~1h00**
+- 🏰 **San Gimignano = coup de cœur garanti pour les enfants** — tours médiévales, ruelles pavées, ambiance "château"
+- 🍦 **Gelateria Dondoli** (Piazza della Cisterna) — championne du monde. Rituel obligatoire pour Maeva et Margaux
+- **Volterra :** Plus calme, musée étrusque accessible dès 9 ans, albâtre à sculpter (ateliers artisans)
+- **Vélo 🚴 :** Boucle entre les deux villages (~40 km) → pour adultes, les filles restent au camping/piscine
+- **Camping :** Il Boschetto di Piemma — terrain nu ✓ | élec ✓ | **piscine ✓** | vue vignes
 
 ---
 
 ### J9 — Sienne · 1 nuit
-- **Depuis San Gimignano → Sienne : 55 km · ~1h00** (SR2 Via Cassia)
-- **À voir :** Piazza del Campo (incontournable), Duomo di Siena (marbre noir & blanc)
-- **Tout à pied** — laisser le Trafic au camping, ZTL total en centre ville
+- **Depuis San Gimignano → Sienne : 55 km · ~1h00**
+- **Piazza del Campo** en forme de coquille — Margaux va vouloir rouler dedans 😄
+- **Duomo :** Fresque au sol en marbre noir & blanc, Maeva sera impressionnée
+- ⚠️ Beaucoup de marche — prévoir sandales confortables et rythme adapté
 - **Camping :** Camping Siena Colleverde — terrain nu ✓ | élec ✓ | bus centro | oliviers
 
 ---
 
 ### J10-J11 — Val d'Orcia & Pitigliano · 2 nuits
-- **Depuis Sienne → Manciano : 100 km · ~1h30** (SR2 puis SP de Maremme)
-- **Val d'Orcia :** Pienza, Montalcino, Bagno Vignoni (piscine thermale dans une piazza médiévale)
-- **Pitigliano :** Ville taillée dans le tuf volcanique — vue spectaculaire
-- **⭐ Terme di Saturnia :** Cascades d'eau chaude à **37°C**, accès libre **GRATUIT** — à 25 km de Manciano
-- **Vélo 🚴 :** Strade Bianche (chemins blancs graviers entre cyprès et vignes)
-- **Camping :** Podere Sei Piagge — terrain nu ✓ | élec ✓ | agriturismo | calme total
+- **Depuis Sienne → Manciano : 100 km · ~1h30**
+- 🌄 **Val d'Orcia :** Les routes à cyprès de carte postale. Arrêt photo incontournable. Pienza pour le pecorino (Maeva adorera goûter)
+- 🏰 **Pitigliano :** "La petite Jérusalem" taillée dans le tuf — féerique pour les enfants, on dirait un château de conte
+- **⭐ Terme di Saturnia :** Cascades thermales **37°C**, accès libre **GRATUIT** — parfait pour toute la famille. Eau peu profonde dans les vasques, Margaux peut barboter en toute sécurité. Aller tôt le matin (moins de monde)
+- **Camping :** Podere Sei Piagge — terrain nu ✓ | élec ✓ | agriturismo | calme total | animaux de la ferme 🐄
 
 ---
 
-### J12-J13 — Lago Trasimeno (Ombrie) · 2 nuits
-- **Depuis Manciano → Castiglione del Lago : 150 km · ~2h00** (SS74 → A1 → E45)
-- **Lac :** Grand lac d'eau douce, eau ~24°C en été, très tranquille
-- **Base :** Castiglione del Lago (village sur presqu'île)
-- **À voir :** Assise (35 km), Pérouse (45 km)
-- **Baignade 🏊 :** Plages Castiglione del Lago, Passignano sul Trasimeno
-- **Vélo 🚴 :** Tour du lac — **50 km quasi plat**, magnifique, journée parfaite
-- **Camping :** Camping Badiaccia — terrain nu ✓ | élec ✓ | plage lac ✓ | location vélo ✓
+### J12-J13 — Lago Trasimeno · 2 nuits
+- **Depuis Manciano → Castiglione del Lago : 150 km · ~2h00**
+- 🏞️ **Lac idéal pour les enfants** — eau douce ~24°C, peu profonde sur les bords, pas de vagues, pas de danger
+- **Castiglione del Lago :** Château médiéval (Maeva adore), plage à 5 min à pied du camping
+- **Assise :** 35 km — ville magnifique, accessible et compacte pour les enfants (escalators internes !)
+- **Baignade 🏊 :** Plage du camping, Passignano sul Trasimeno (plus animé)
+- **🚴 Tour du lac :** 50 km quasi plat — faire une demi-boucle en famille avec Maeva (25 km), Margaux sur remorque ou vélo enfant
+- **Camping :** Camping Badiaccia — terrain nu ✓ | élec ✓ | **plage lac ✓** | location vélo ✓ | aire de jeux
 
 ---
 
-### J14-J15 — Retour · 700 km total · ~8h route
-- **Lago Trasimeno → Mugello : 140 km · ~1h45** (E45 → A1 → Barberino di Mugello)
-- Stop Piazzale Michelangelo (Florence) — vue panoramique sans entrer en ville (ZTL !)
-- **Mugello → Morez : 560 km · ~6h00** via Bologna → Milan → Turin → Aoste → Tunnel Mont-Blanc → Genève → Morez
-- Étape J14 : **Camping Mugello Verde** (Barberino di Mugello) — terrain nu ✓ | élec ✓ | piscine
+### J14-J15 — Retour · 700 km · ~8h route
+- **Lago Trasimeno → Mugello : 140 km · ~1h45**
+- Stop rapide Florence : Piazzale Michelangelo (vue panoramique, parking possible pour Trafic)
+- **Mugello → Morez : 560 km · ~6h00** → prévoir 2 pauses, partir tôt
+- 💡 Fractionner sur 2 jours comme prévu — J14 étape Mugello, J15 retour tranquille
+- **Camping :** Camping Mugello Verde — terrain nu ✓ | élec ✓ | piscine ✓
 
 ---
 
-## ⛺ Campings — Terrain nu + Électricité
+## ⛺ Campings — Terrain nu + Électricité (famille 4 personnes)
 
-| Camping | Lieu | Notes |
-|---------|------|-------|
-| Camping Estella | Diano Marina | Bord de mer |
-| Camping Acqua Dolce | Levanto | Vue mer, navette |
-| Camping Torre Pendente | Pise | 1 km Tour, piscine |
-| Il Boschetto di Piemma | San Gimignano | Vignes, piscine |
+| Camping | Lieu | Enfants |
+|---------|------|---------|
+| Camping Estella | Diano Marina | Bord mer, sanitaires familles |
+| Camping Acqua Dolce | Levanto | Vue mer, aire jeux |
+| Camping Torre Pendente | Pise | **Piscine**, 1 km Tour |
+| Il Boschetto di Piemma | San Gimignano | **Piscine**, vignes |
 | Camping Colleverde | Sienne | Bus centro, oliviers |
-| Podere Sei Piagge | Manciano | Agriturismo, calme |
-| Camping Badiaccia | Lago Trasimeno | Plage lac, vélos |
-| Camping Mugello Verde | Barberino di Mugello | Étape retour |
+| Podere Sei Piagge | Manciano | Ferme, animaux, calme |
+| Camping Badiaccia | Lago Trasimeno | **Plage lac + aire jeux** |
+| Camping Mugello Verde | Barberino di Mugello | **Piscine**, étape retour |
 
-> 💡 **Réserver AVANT le départ.** Demander *"piazzola nuda + corrente"*.  
-> 💡 Emporter rallonge **25m** — les bornes sont parfois loin de l'emplacement.
-
----
-
-## 🏊 Spots Baignade
-
-| Spot | Type | Notes |
-|------|------|-------|
-| Plage Levanto | Mer (sable) | Grande, familiale |
-| Monterosso al Mare | Mer (sable) | Seule vraie plage sable des Cinque Terre |
-| Marina di Pisa | Mer (sable) | 20 min de Pise |
-| **Terme di Saturnia** ⭐ | Thermes 37°C | **Gratuit, accès libre 24h/24** |
-| Lago Trasimeno | Lac (eau douce) | Eau ~24°C, plages tranquilles |
+> 💡 **Réserver AVANT le départ.** Demander *"piazzola nuda + corrente per famiglia di 4 persone"*.  
+> 💡 Rallonge **25m** indispensable.  
+> 💡 Vérifier gabarit emplacements pour Trafic rallongé (longueur ~5,5m) à la réservation.
 
 ---
 
-## 🚴 Sorties Vélo
+## 🏊 Spots Baignade — adaptés enfants
 
-| Sortie | Distance | Niveau | Notes |
-|--------|----------|--------|-------|
-| Tunnel Levanto → Bonassola | 5 km | ⬛ Facile | Piste dédiée, tunnel côtier |
-| Remparts de Lucca | 4 km | ⬛ Facile | Sur les murs médiévaux |
-| San Gimignano ↔ Volterra | ~40 km | 🟧 Moyen | Vallonné, paysage toscan |
-| Strade Bianche Val d'Orcia | variable | 🟧 Moyen | Gravel, cyprès et vignes |
-| Tour Lago Trasimeno | 50 km | ⬛ Facile | Quasi plat, magnifique |
-
-Apps utiles : **Komoot**, Strava, Wikiloc
+| Spot | Type | Adapté enfants |
+|------|------|----------------|
+| Plage Levanto | Mer (sable) | ✅ Eau calme, peu profonde |
+| Monterosso al Mare | Mer (sable) | ✅ Seule vraie plage Cinque Terre |
+| Marina di Pisa | Mer (sable) | ✅ Grande, eau peu profonde |
+| **Terme di Saturnia** ⭐ | Thermes 37°C naturels | ✅ Vasques peu profondes, GRATUIT |
+| Lago Trasimeno | Lac (eau douce) | ✅✅ Idéal — eau calme, 24°C, sans vagues |
 
 ---
 
-## ⚡ Fossibot F2400 — Stratégie
+## 🚴 Sorties Vélo — en famille
+
+| Sortie | Distance | Pour qui | Notes |
+|--------|----------|----------|-------|
+| Levanto → Bonassola | 5 km | ✅ Toute la famille | Tunnel, facile, Margaux OK |
+| Remparts de Lucca | 4 km | ✅ Toute la famille | Plat, sur les murs, fun |
+| San Gimignano ↔ Volterra | ~40 km | 🧑 Adultes | Trop long/vallonné pour les filles |
+| Strade Bianche | variable | 🧑 Adultes | Gravel |
+| Tour Lago Trasimeno (½) | 25 km | ✅ Maeva + adultes | Margaux en remorque ou demi-tour |
+
+---
+
+## ⚡ Fossibot F2400
 
 | Situation | Durée |
 |-----------|-------|
-| Avec élec camping (800W AC) | Recharge complète ~3h |
-| Frigo seul (12V) | ~4-5j autonomie |
+| Avec élec camping (800W) | Recharge complète ~3h |
+| Frigo seul (12V) | ~4-5j |
 | Frigo + éclairage + usages | ~2j confort |
-
-Rallonge 25m indispensable. Panneau solaire bienvenu pour les jours sans borne.
 
 ---
 
-## 💶 Budget Estimé (pour 2)
+## 💶 Budget Estimé — 4 personnes (2 adultes + 2 enfants)
 
 | Poste | Estimation |
 |-------|-----------|
-| Campings (15 nuits × ~20€) | ~300 € |
-| Carburant (~1 850 km × ~10L/100 × 1,85€/L) | **~340 €** |
-| Péages aller-retour (FR + IT) | ~80 € |
-| Alimentation (courses + restos) | ~600 € |
-| Activités & entrées | ~100 € |
-| **Total** | **~1 420 €** |
+| Campings (15 nuits × ~28€ famille) | ~420 € |
+| Carburant (~1 850 km × ~10L/100 × 1,85€) | ~340 € |
+| Péages (FR + IT aller-retour) | ~80 € |
+| Alimentation (courses + restos occasionnels) | ~750 € |
+| Activités, entrées, trains Cinque Terre | ~150 € |
+| Glaces, souvenirs, imprévus 😄 | ~100 € |
+| **Total** | **~1 840 €** |
 
-> ⚠️ Trafic rallongé = consommation plus élevée qu'un véhicule léger (~10-11L/100 réaliste chargé)
+> Enfants <12 ans : souvent tarif réduit ou gratuit dans les musées italiens (UE).  
+> Maeva peut être compté adulte dans certains transports — vérifier à l'achat.
 
 ---
 
-## ⚠️ Points de vigilance — Trafic rallongé
+## ⚠️ Points de vigilance
 
-- **ZTL :** Ne jamais entrer en voiture dans les centres historiques — caméras automatiques, amende directe envoyée chez toi
-- **Stationnement :** Prévoir parking extérieur ville (signalé P + navette ou bus)
-- **Gilet + triangle** dans l'habitacle (obligatoire en Italie)
-- **Assurance internationale** : vérifier carte verte
-- **Gabarit :** Vérifier hauteur sous passage (tunnel Mont-Blanc 5,5m = OK) et largeur parking campings
-- Péages payés aux barrières IT (pas de télépéage requis)
+- **ZTL :** Ne jamais entrer en voiture dans les centres historiques (caméras auto, amende directe)
+- **Stationnement Trafic :** Prévoir parking extérieur + bus/train pour les centres ville
+- **Gilet + triangle** dans l'habitacle (obligatoire Italie)
+- **Assurance internationale** : vérifier carte verte (4 personnes couvertes)
+- **Sièges enfants :** Margaux (9 ans) → rehausseur obligatoire en France & Italie
+- **Médicaments voyage** : anti-nausée (trajets montagne), crème solaire, répulsif moustiques (lac Trasimeno surtout)
+- **Gabarit** : Vérifier longueur emplacements camping (Trafic rallongé ~5,5m)
 
 ---
 
 ## 🛣️ Route depuis Morez
 
-- **Option A (principal) :** Morez → A40 → Genève → Chamonix → **Tunnel Mont-Blanc** → Aoste → Turin → A26 → Gênes → A10 Ligurie (~450 km, ~5h)
-- **Option B (scenic) :** Morez → Grenoble → Briançon → **Col/Tunnel du Montgenèvre** → Turin → Gênes → Ligurie (~480 km, ~5h30, col 1850m)
+- **Option A :** Morez → A40 → Genève → **Tunnel Mont-Blanc** → Aoste → Turin → A26 → Gênes → A10 (~450 km, ~5h)
+- **Option B :** Morez → Grenoble → Briançon → **Col Montgenèvre** → Turin → Gênes (~480 km, ~5h30, scenic)
+- 💡 Avec enfants : partir **à 6h-7h** pour arriver avant 14h et garder de l'énergie pour la mer
 
 ---
 
-*Généré depuis Morez (Jura) 🍷 — bon voyage !*
+*Roadtrip préparé pour Mathieu, sa compagne, Maeva (12 ans) & Margaux (9 ans) 🍷 — bon voyage en famille !*
